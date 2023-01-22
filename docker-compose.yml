@@ -1,0 +1,30 @@
+version: "3"
+services:
+    web:
+        image: nginx:latest
+        container_name: web.dev.weather_app
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/var/www/html
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        links:
+            - php
+    php:
+        build: ./docker/php-fpm
+        container_name: php.dev.weather_app
+        expose:
+            - 9000
+        volumes:
+            - ./:/var/www/html
+    db:
+        image: mysql:8.0
+        container_name: mysql.dev.weather_app
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: weather_app
+            MYSQL_ROOT_PASSWORD: secret
+        volumes:
+            - /var/lib/mysql
+            - ./docker/mysql/scripts:/docker-entrypoint-initdb.d
