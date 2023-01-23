@@ -28,3 +28,8 @@ services:
         volumes:
             - /var/lib/mysql
             - ./docker/mysql/scripts:/docker-entrypoint-initdb.d
+    redis:
+        image: redis:7.0
+        container_name: redis.dev.weather_app
+        ports:
+            - "6382:6379"
