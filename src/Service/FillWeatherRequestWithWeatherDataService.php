@@ -11,8 +11,8 @@ class FillWeatherRequestWithWeatherDataService
 
     public function fillEntityWithWeatherData(CurrentWeatherRequest $entity): CurrentWeatherRequest
     {
-        $successCnt = 0;
-        $temp = 0;
+        $successfulProviderRequestCnt = 0;
+        $tempSum = 0;
 
         /** @var CurrentWeatherInterface $provider */
         foreach ($this->weatherProviders as $provider) {
@@ -20,15 +20,15 @@ class FillWeatherRequestWithWeatherDataService
                 $providerTmp = $provider->getCurrentWeatherCached($entity);
 
                 $entity->addWeatherDataDetail($provider->getProviderName(), $providerTmp);
-                $temp += $providerTmp;
-                $successCnt += 1;
+                $tempSum += $providerTmp;
+                $successfulProviderRequestCnt += 1;
             } catch (\Exception $exception) {
                 $entity->addWeatherDataDetail($provider->getProviderName(), $exception->getMessage());
             }
         }
 
-        if ($successCnt > 0) {
-            $entity->setAverageTmp($temp / $successCnt);
+        if ($successfulProviderRequestCnt > 0) {
+            $entity->setAverageTmp($tempSum / $successfulProviderRequestCnt);
         }
 
         return $entity;

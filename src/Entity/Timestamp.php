@@ -7,17 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 trait Timestamp
 {
     #[ORM\Column(type: 'datetime', options: ["default" => "CURRENT_TIMESTAMP"])]
-    private $createdAt;
+    private ?\DateTime $createdAt = null;
 
     #[ORM\Column(type: 'datetime', options: ["default" => "CURRENT_TIMESTAMP"])]
-    private $updatedAt;
+    private ?\DateTime $updatedAt = null;
 
-    public function getCreatedAt()
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt()
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
