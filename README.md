@@ -32,7 +32,7 @@ The app allows you to check current average temperature calculated from data fro
     php bin/console d:s:u -f
     ```
 7. Create a file .env.local from .env and add credentials to it. You have to create an account at [openweathermap.org](https://openweathermap.org/api), [weatherbit.io](https://www.weatherbit.io/) and [geocode.earth](https://geocode.earth/) and get their API keys
-
+8. Go to [http://localhost/](http://localhost/)
 ## Docker
 
 ### Initialize
