@@ -2,9 +2,9 @@
 
 namespace App\Service\Api;
 
+use App\Entity\CurrentWeatherRequest;
+
 interface CurrentWeatherInterface
 {
-    public function getCurrentWeather(float $lat, float $lon): float;
-
-    public function getProviderName(): string;
+    public function getCurrentWeatherCached(CurrentWeatherRequest $entity): float;
 }

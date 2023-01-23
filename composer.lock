@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "109444d374afd84e51178f95c25ce571",
+    "content-hash": "2bc66be3c794e11610729d794a038be8",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1517,6 +1517,124 @@
             "homepage": "http://geocoder-php.org/Geocoder/",
             "support": {
                 "source": "https://github.com/geocoder-php/geocode-earth-provider/tree/1.4.0"
+            },
+            "time": "2022-07-30T12:09:30+00:00"
+        },
+        {
+            "name": "geocoder-php/google-maps-places-provider",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geocoder-php/google-maps-places-provider.git",
+                "reference": "4d8b360119e924fb357f30d2e141621499e2c803"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geocoder-php/google-maps-places-provider/zipball/4d8b360119e924fb357f30d2e141621499e2c803",
+                "reference": "4d8b360119e924fb357f30d2e141621499e2c803",
+                "shasum": ""
+            },
+            "require": {
+                "geocoder-php/common-http": "^4.0",
+                "php": "^7.4 || ^8.0",
+                "willdurand/geocoder": "^4.0"
+            },
+            "provide": {
+                "geocoder-php/provider-implementation": "1.0"
+            },
+            "require-dev": {
+                "geocoder-php/provider-integration-tests": "^1.0",
+                "php-http/curl-client": "^2.2",
+                "php-http/message": "^1.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Geocoder\\Provider\\GoogleMapsPlaces\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "atymic",
+                    "email": "atymicq@gmail.com"
+                }
+            ],
+            "description": "Geocoder Google Maps Places adapter",
+            "homepage": "http://geocoder-php.org/Geocoder/",
+            "support": {
+                "source": "https://github.com/geocoder-php/google-maps-places-provider/tree/1.4.0"
+            },
+            "time": "2022-07-30T12:09:30+00:00"
+        },
+        {
+            "name": "geocoder-php/google-maps-provider",
+            "version": "4.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geocoder-php/google-maps-provider.git",
+                "reference": "378cd4dd26cba5a004f2a4738e8988e646af3274"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geocoder-php/google-maps-provider/zipball/378cd4dd26cba5a004f2a4738e8988e646af3274",
+                "reference": "378cd4dd26cba5a004f2a4738e8988e646af3274",
+                "shasum": ""
+            },
+            "require": {
+                "geocoder-php/common-http": "^4.0",
+                "php": "^7.4 || ^8.0",
+                "willdurand/geocoder": "^4.0"
+            },
+            "provide": {
+                "geocoder-php/provider-implementation": "1.0"
+            },
+            "require-dev": {
+                "geocoder-php/provider-integration-tests": "^1.0",
+                "php-http/curl-client": "^2.2",
+                "php-http/message": "^1.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Geocoder\\Provider\\GoogleMaps\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com"
+                }
+            ],
+            "description": "Geocoder GoogleMaps adapter",
+            "homepage": "http://geocoder-php.org/Geocoder/",
+            "support": {
+                "source": "https://github.com/geocoder-php/google-maps-provider/tree/4.7.0"
             },
             "time": "2022-07-30T12:09:30+00:00"
         },

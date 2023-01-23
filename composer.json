@@ -12,6 +12,8 @@
         "doctrine/orm": "^2.14",
         "geocoder-php/common-http": "*",
         "geocoder-php/geocode-earth-provider": "*",
+        "geocoder-php/google-maps-places-provider": "^1.4",
+        "geocoder-php/google-maps-provider": "^4.7",
         "guzzlehttp/guzzle": "^7.5",
         "nyholm/psr7": "*",
         "predis/predis": "^2.1",
