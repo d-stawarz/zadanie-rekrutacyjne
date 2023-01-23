@@ -1,1 +1,1 @@
-CREATE DATABASE IF NOT EXISTS whitedog_test;
+CREATE DATABASE IF NOT EXISTS weather_app_test;

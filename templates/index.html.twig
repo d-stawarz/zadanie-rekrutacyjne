@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script
+            type="module"
+            src="https://cdn.jsdelivr.net/npm/@geocodeearth/autocomplete-element/dist/bundle.js">
+    </script>
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        <ge-autocomplete
+                api_key="{{ geocodeEarthApiKey }}"
+                placeholder="Wpisz miasto"
+                name="searchText"
+        ></ge-autocomplete>
+    {{ form_end(form) }}
+
+    {% if currentWeatherRequest is not null %}
+        {% if currentWeatherRequest.averageTmp %}
+            <div>Aktualna pogoda w {{ currentWeatherRequest.searchText }} to {{ currentWeatherRequest.getAverageTmpRounded() }}&#8451</div>
+        {% else %}
+            <div>Nie znaleziono takiego miasta, upewnij się, że takie miasto istnieje</div>
+        {% endif %}
+    {% endif %}
+
+    <script>
+      const el = document.querySelector('ge-autocomplete');
+      const form = document.querySelector('form');
+
+      const countryInput = document.getElementById('weather_form_country');
+      const cityInput = document.getElementById('weather_form_cityName');
+      const searchTextInput = document.getElementById('weather_form_searchText');
+      const lonInput = document.getElementById('weather_form_lon');
+      const latInput = document.getElementById('weather_form_lat');
+      const submitBtn = document.getElementById('weather_form_submit');
+
+      // 'select' event handler - when a user selects an item from the suggestions
+      el.addEventListener('select', (event) => {
+        const { country, locality, label } = event.detail.properties;
+        const [lon, lat] = event.detail.geometry.coordinates;
+
+        countryInput.value = country;
+        cityInput.value = locality;
+        searchTextInput.value = label;
+        latInput.value = lat;
+        lonInput.value = lon;
+
+        submitBtn.disabled = false;
+      })
+    </script>
+{% endblock %}
